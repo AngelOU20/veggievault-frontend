@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DesktopNav } from './Navbar/DesktopNav';
 import { MobileNav } from './Navbar/MobileNav';
-import logo from '/VeggieVault.svg';
+import logo from '/logo.svg';
 
 export const Header = () => {
   const [hideLeft, setHideLeft] = useState('-left-[1000px]');
