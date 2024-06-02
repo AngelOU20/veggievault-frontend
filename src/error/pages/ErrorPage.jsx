@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import logo from '/logo-veggie.webp';
 
-export const ErrorPage = () => {
+const ErrorPage = () => {
   return (
     <main className="grid h-svh place-items-center bg-primary px-6 py-24 sm:py-32 lg:px-8">
       <div className="flex flex-col items-center text-center">
@@ -26,3 +26,5 @@ export const ErrorPage = () => {
     </main>
   );
 };
+
+export default ErrorPage;
