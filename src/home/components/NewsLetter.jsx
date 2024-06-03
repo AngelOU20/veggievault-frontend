@@ -1,7 +1,7 @@
 export const NewsLetter = () => {
   return (
     <div className="w-full md:w-4/5 mx-auto flex flex-col items-center p-10 ">
-      <h3 className="text-secondary font-semibold text-center text-4xl w-full sm:w-2/3">
+      <h3 className="text-secondary font-semibold text-center text-4xl leading-relaxed w-full sm:w-2/3 xl:w-1/2">
         Sign up for my weekly newsletter!
       </h3>
       <p className="mt-6 text-gray-600 text-lg text-center leading-normal font-light">

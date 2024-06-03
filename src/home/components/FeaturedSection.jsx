@@ -12,7 +12,7 @@ export const FeaturedSection = () => {
       </div>
 
       <div className="text-start xl:w-11/12 lg:w-[170%] ">
-        <h2 className="text-3xl font-semibold text-secondary lg:text-4xl xl:text-5xl xl:leading-relaxed lg:leading-relaxed">
+        <h2 className="text-3xl font-semibold text-secondary md:text-4xl xl:text-5xl leading-normal md:leading-normal xl:leading-relaxed">
           Pineapple + Smoked Jackfrauit Pizza
         </h2>
         <p className="text-lg md:text-xl mt-4 text-[#5c5c5c]">
