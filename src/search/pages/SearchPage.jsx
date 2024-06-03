@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { GrSearch } from 'react-icons/gr';
+import { Card } from '../../components/Card/Card';
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');
@@ -68,7 +69,7 @@ const SearchPage = () => {
         {results &&
           results?.map((result) => (
             <React.Fragment key={result.name}>
-              <div>{result.name}</div>
+              <Card item={result} />
             </React.Fragment>
           ))}
       </ul>
