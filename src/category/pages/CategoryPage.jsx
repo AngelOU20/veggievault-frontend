@@ -1,12 +1,39 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import CategoryWrapper from '../components/CategoryWrapper';
 import { categories } from '../constants';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Card } from '../../components/Card/Card';
 
 const CategoryPage = () => {
   const [isValidCategory, setIsValidCategory] = useState(false);
   const { category } = useParams();
   const navigate = useNavigate();
+
+  const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCategoryData = async () => {
+      setIsLoading(true);
+
+      try {
+        const resp = await axios.get(
+          `http://localhost:3000/api/categories/${category}`
+        );
+        setRecipes(resp.data);
+        setIsLoading(false);
+        setError(null);
+      } catch (error) {
+        setError(error.message || 'Error loading category');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCategoryData();
+  }, [category]);
 
   useEffect(() => {
     const categoryExists = categories.some((cat) => cat.href === category);
@@ -28,6 +55,18 @@ const CategoryPage = () => {
       </h1>
 
       <CategoryWrapper />
+
+      {isLoading && <div>Loading...</div>}
+
+      {error && <div>{error}</div>}
+
+      <ul className=" mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {recipes?.map((item) => (
+          <React.Fragment key={item._id}>
+            <Card item={item} />
+          </React.Fragment>
+        ))}
+      </ul>
     </div>
   );
 };
