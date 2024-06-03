@@ -1,5 +1,7 @@
 import CategoryWrapper from '../../category/components/CategoryWrapper';
+import { FeaturedSection } from '../components/FeaturedSection';
 import { Hero } from '../components/Hero';
+import LatestRecipe from '../components/LatestRecipe';
 
 const Home = () => {
   return (
@@ -8,6 +10,10 @@ const Home = () => {
         <Hero />
         <CategoryWrapper />
       </div>
+
+      <FeaturedSection />
+
+      <LatestRecipe />
     </div>
   );
 };
