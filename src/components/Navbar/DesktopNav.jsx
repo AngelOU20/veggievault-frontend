@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const DesktopNav = ({ menuItems, logo }) => {
   return (
-    <nav className="h-16 flex justify-between items-center px-6 md:px-12 mb-7">
+    <nav className="h-16 flex justify-between items-center px-6 md:px-12">
       <a href="/">
         <img src={logo} className="h-10" alt="logo" />
       </a>
