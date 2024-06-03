@@ -16,7 +16,7 @@ export const Header = () => {
   };
 
   return (
-    <>
+    <header className="bg-primary w-full fixed top-0 left-0 z-50">
       <div className="max-[900px]:hidden">
         <DesktopNav menuItems={menuItems} logo={logo} />
       </div>
@@ -30,6 +30,6 @@ export const Header = () => {
           hideLeft={hideLeft}
         />
       </div>
-    </>
+    </header>
   );
 };
