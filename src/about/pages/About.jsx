@@ -1,4 +1,5 @@
 import { FaQuoteLeft } from 'react-icons/fa';
+import aboutImage from '../../assets/about-image.webp';
 
 const About = () => {
   return (
@@ -10,7 +11,7 @@ const About = () => {
 
         <div className="mb-10">
           <img
-            src="https://source.unsplash.com/1600x900/?healthy-food"
+            src={aboutImage}
             alt="Healthy Food"
             className="w-full h-64 object-cover rounded-lg shadow-lg"
           />
