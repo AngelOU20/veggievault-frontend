@@ -1,10 +1,12 @@
 import CategoryWrapper from '../../category/components/CategoryWrapper';
-import { AboutSection } from '../components/AboutSection';
-import { CompanyLogo } from '../components/CompanyLogo';
-import { FeaturedSection } from '../components/FeaturedSection';
-import { Hero } from '../components/Hero';
-import { LatestRecipe } from '../components/LatestRecipe';
-import { NewsLetter } from '../components/NewsLetter';
+import {
+  Hero,
+  FeaturedSection,
+  LatestRecipe,
+  NewsLetter,
+  AboutSection,
+  CompanyLogo,
+} from '../components';
 
 const Home = () => {
   return (
