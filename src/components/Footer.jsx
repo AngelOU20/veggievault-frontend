@@ -2,7 +2,7 @@ import { BiSolidLeaf } from 'react-icons/bi';
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary">
+    <footer className="bg-primary px-6 md:px-12">
       <div className="p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
