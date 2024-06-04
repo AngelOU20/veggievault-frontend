@@ -1,9 +1,9 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CategoryWrapper from '../components/CategoryWrapper';
 import { categories } from '../constants';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Card } from '../../components/Card/Card';
+import { Card, Skeleton } from '../../components';
 
 const CategoryPage = () => {
   const [isValidCategory, setIsValidCategory] = useState(false);
@@ -56,16 +56,22 @@ const CategoryPage = () => {
 
       <CategoryWrapper />
 
-      {isLoading && <div>Loading...</div>}
+      {isLoading && (
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <Skeleton />
+          <Skeleton />
+        </div>
+      )}
 
       {error && <div>{error}</div>}
 
       <ul className=" mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {recipes?.map((item) => (
-          <React.Fragment key={item._id}>
-            <Card item={item} />
-          </React.Fragment>
-        ))}
+        {!isLoading &&
+          recipes?.map((item) => (
+            <React.Fragment key={item._id}>
+              <Card item={item} />
+            </React.Fragment>
+          ))}
       </ul>
     </div>
   );
