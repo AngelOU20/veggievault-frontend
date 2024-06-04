@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import featuredImage from '../../assets/feature.webp';
 
 export const FeaturedSection = () => {
@@ -33,5 +32,3 @@ export const FeaturedSection = () => {
     </div>
   );
 };
-
-// FeaturedSection.propTypes = {};
