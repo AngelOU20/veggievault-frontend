@@ -31,7 +31,7 @@ const blogData = [
 
 const ResourcesPage = () => {
   return (
-    <div className="px-6 lg:px-12 py-20 bg-gray-50">
+    <div className="px-6 lg:px-12 py-20 bg-primary">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl text-center mb-12 font-semibold text-gray-800 sm:text-5xl sm:leading-relaxed">
           Resources
