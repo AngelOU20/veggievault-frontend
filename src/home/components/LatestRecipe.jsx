@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card } from '../../components/Card/Card';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Card, Spinner } from '../../components';
 
 export const LatestRecipe = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +31,7 @@ export const LatestRecipe = () => {
         Latest recipes
       </h2>
 
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Spinner />}
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {latestRecipes.map((item) => (
