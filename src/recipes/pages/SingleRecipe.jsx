@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Spinner } from '../../components';
 
 const SingleRecipe = () => {
   const { id } = useParams();
@@ -31,7 +32,7 @@ const SingleRecipe = () => {
   }, [id]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   const onNavigateBack = () => {
