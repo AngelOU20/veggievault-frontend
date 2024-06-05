@@ -1,13 +1,14 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CategoryWrapper from '../components/CategoryWrapper';
 import { categories } from '../constants';
 import { Card, Skeleton } from '../../components';
+import { fetchCategory } from '../../services/apiService';
 
 const CategoryPage = () => {
   const [isValidCategory, setIsValidCategory] = useState(false);
   const { category } = useParams();
+
   const navigate = useNavigate();
 
   const [recipes, setRecipes] = useState([]);
@@ -19,10 +20,8 @@ const CategoryPage = () => {
       setIsLoading(true);
 
       try {
-        const resp = await axios.get(
-          `http://localhost:3000/api/categories/${category}`
-        );
-        setRecipes(resp.data);
+        const data = await fetchCategory(category);
+        setRecipes(data);
         setIsLoading(false);
         setError(null);
       } catch (error) {
