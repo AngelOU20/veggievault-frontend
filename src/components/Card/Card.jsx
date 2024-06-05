@@ -19,11 +19,14 @@ export const Card = ({ item }) => {
     <li className="container flex justify-center md:justify-start">
       <div className="mx-w-sm">
         <div className="bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg">
-          <img
-            src={item?.thumbnail_image}
-            // loading="lazy"
-            alt="thumbnail image"
-          />
+          <div className="overflow-hidden w-full h-60">
+            <img
+              src={item?.thumbnail_image}
+              loading="lazy"
+              alt="thumbnail image"
+              className="h-auto w-full rounded-ss-lg rounded-se-lg"
+            />
+          </div>
           <div className="py-6 px-5 rounded-lg bg-white">
             <Link to={`/recipes/${item._id}`}>
               <h1 className="text-gray-700 font-bold text-xl mb-8 hover:text-gray-900 hover:cursor-pointer">
