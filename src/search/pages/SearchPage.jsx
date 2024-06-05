@@ -1,7 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { GrSearch } from 'react-icons/gr';
 import { Card, Spinner } from '../../components';
+import { searchRecipes } from '../../services/apiService';
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');
@@ -9,33 +9,33 @@ const SearchPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const fetchRecipes = useCallback(async () => {
+    if (!query) return;
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const data = await searchRecipes(query);
+      setResults(data);
+    } catch (error) {
+      setError(error.message || 'Error fetching data');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [query]);
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const queryParam = params.get('query');
-
     if (queryParam) {
       setQuery(queryParam);
     }
   }, []);
 
   useEffect(() => {
-    const fetchRecipes = async () => {
-      setIsLoading(true);
-
-      try {
-        const response = await axios.get('http://localhost:3000/api/recipes', {
-          params: { q: query },
-        });
-        setResults(response.data);
-      } catch (error) {
-        setError(error.message || 'Error fetching data');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     fetchRecipes();
-  }, [query]);
+  }, [fetchRecipes]);
 
   const handleSearch = (event) => {
     setQuery(event.target.value);
