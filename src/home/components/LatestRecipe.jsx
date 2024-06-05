@@ -1,9 +1,10 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Spinner } from '../../components';
+import { fetchLatestRecipes as getLatestRecipes } from '../../services/apiService';
 
 export const LatestRecipe = () => {
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [latestRecipes, setLatestRecipes] = useState([]);
 
@@ -12,13 +13,14 @@ export const LatestRecipe = () => {
       setIsLoading(true);
 
       try {
-        const response = await axios.get(
-          'http://localhost:3000/api/latest-recipes'
-        );
-        setLatestRecipes(response.data);
+        const data = await getLatestRecipes();
+        setLatestRecipes(data);
         setIsLoading(false);
+        setError(null);
       } catch (error) {
-        console.error('Error fetching the latest recipes:', error);
+        setError('Error fetching the latest recipes:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -33,12 +35,15 @@ export const LatestRecipe = () => {
 
       {isLoading && <Spinner />}
 
+      {error && <div>{error}</div>}
+
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {latestRecipes.map((item) => (
-          <React.Fragment key={item._id}>
-            <Card item={item} />
-          </React.Fragment>
-        ))}
+        {!isLoading &&
+          latestRecipes?.map((item) => (
+            <React.Fragment key={item._id}>
+              <Card item={item} />
+            </React.Fragment>
+          ))}
       </ul>
 
       <div className="flex justify-center items-center mt-10">
