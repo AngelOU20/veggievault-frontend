@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Spinner } from '../../components';
+import { fetchSingleRecipe as getSingleRecipe } from '../../services/apiService';
 
 const SingleRecipe = () => {
   const { id } = useParams();
@@ -17,8 +17,7 @@ const SingleRecipe = () => {
       setIsLoading(true);
 
       try {
-        const resp = await axios.get(`http://localhost:3000/api/recipes/${id}`);
-        const data = resp.data;
+        const data = await getSingleRecipe(id);
         setSingleRecipe(data);
         setIsLoading(false);
       } catch (err) {
