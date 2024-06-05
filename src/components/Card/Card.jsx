@@ -17,14 +17,14 @@ export const Card = ({ item }) => {
 
   return (
     <li className="container flex justify-center md:justify-start">
-      <div className="mx-w-sm">
+      <div className="mx-w-sm w-96">
         <div className="bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg">
-          <div className="overflow-hidden w-full h-60">
+          <div className="overflow-hidden w-full h-64 xl:h-52">
             <img
               src={item?.thumbnail_image}
               loading="lazy"
               alt="thumbnail image"
-              className="h-auto w-full rounded-ss-lg rounded-se-lg"
+              className="rounded-ss-lg rounded-se-lg h-64 w-full"
             />
           </div>
           <div className="py-6 px-5 rounded-lg bg-white">
