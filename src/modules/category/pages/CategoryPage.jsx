@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CategoryWrapper from '../components/CategoryWrapper';
 import { categories } from '../constants';
-import { Card, Skeleton } from '../../components';
-import { fetchCategory } from '../../services/apiService';
+import { Card, Skeleton } from '../../../components';
+import { fetchCategory } from '../../../services/apiService';
 
 const CategoryPage = () => {
   const [isValidCategory, setIsValidCategory] = useState(false);

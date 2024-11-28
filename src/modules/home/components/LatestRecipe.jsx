@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Spinner } from '../../components';
-import { fetchLatestRecipes as getLatestRecipes } from '../../services/apiService';
+import { Card, Spinner } from '../../../components';
+import { fetchLatestRecipes as getLatestRecipes } from '../../../services/apiService';
 
 export const LatestRecipe = () => {
   const [error, setError] = useState(null);

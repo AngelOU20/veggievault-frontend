@@ -1,5 +1,5 @@
 import { FaQuoteLeft } from 'react-icons/fa';
-import aboutImage from '../../assets/about-image.webp';
+import aboutImage from '../../../assets/about-image.webp';
 
 const About = () => {
   return (

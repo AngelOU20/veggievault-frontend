@@ -1,4 +1,4 @@
-import featuredImage from '../../assets/feature.webp';
+import featuredImage from '../../../assets/feature.webp';
 
 export const FeaturedSection = () => {
   return (

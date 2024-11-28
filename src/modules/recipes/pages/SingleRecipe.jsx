@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Spinner } from '../../components';
-import { fetchSingleRecipe as getSingleRecipe } from '../../services/apiService';
+import { Spinner } from '../../../components';
+import { fetchSingleRecipe as getSingleRecipe } from '../../../services/apiService';
 
 const SingleRecipe = () => {
   const { id } = useParams();

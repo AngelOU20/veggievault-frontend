@@ -1,13 +1,24 @@
+import { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
-import Home from '../home/pages/Home';
 import ErrorPage from '../error/pages/ErrorPage';
-import CategoryPage from '../category/pages/CategoryPage';
-import SearchPage from '../search/pages/SearchPage';
-import SingleRecipe from '../recipes/pages/SingleRecipe';
-import Recipes from '../recipes/pages/Recipes';
-import ResourcesPage from '../resources/pages/ResourcesPage';
-import About from '../about/pages/About';
+
+import { Spinner } from '../components';
+
+const Home = lazy(() => import('../modules/home/pages/Home'));
+const CategoryPage = lazy(() =>
+  import('../modules/category/pages/CategoryPage')
+);
+const SearchPage = lazy(() => import('../modules/search/pages/SearchPage'));
+
+const SingleRecipe = lazy(() =>
+  import('../modules/recipes/pages/SingleRecipe')
+);
+const Recipes = lazy(() => import('../modules/recipes/pages/Recipes'));
+const ResourcesPage = lazy(() =>
+  import('../modules/resources/pages/ResourcesPage')
+);
+const About = lazy(() => import('../modules/about/pages/About'));
 
 const router = createBrowserRouter([
   {
@@ -17,31 +28,59 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: '/categories/:category',
-        element: <CategoryPage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <CategoryPage />
+          </Suspense>
+        ),
       },
       {
         path: '/search',
-        element: <SearchPage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <SearchPage />
+          </Suspense>
+        ),
       },
       {
         path: '/recipes/:id',
-        element: <SingleRecipe />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <SingleRecipe />
+          </Suspense>
+        ),
       },
       {
         path: '/recipes',
-        element: <Recipes />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Recipes />
+          </Suspense>
+        ),
       },
       {
         path: '/resources',
-        element: <ResourcesPage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <ResourcesPage />
+          </Suspense>
+        ),
       },
       {
         path: '/about',
-        element: <About />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <About />
+          </Suspense>
+        ),
       },
     ],
   },

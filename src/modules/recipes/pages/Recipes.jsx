@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Card, Spinner } from '../../components';
-import { useFetch } from '../../hooks/useFetch';
-import { fetchRecipes } from '../../services/apiService';
+import { Card, Spinner } from '../../../components';
+import { useFetch } from '../../../hooks/useFetch';
+import { fetchRecipes } from '../../../services/apiService';
 
 const Recipes = () => {
   const [searchParams, setSearchParams] = useSearchParams();

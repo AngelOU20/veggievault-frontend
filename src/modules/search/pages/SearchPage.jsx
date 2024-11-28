@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { GrSearch } from 'react-icons/gr';
-import { Card, Spinner } from '../../components';
-import { searchRecipes } from '../../services/apiService';
+import { Card, Spinner } from '../../../components';
+import { searchRecipes } from '../../../services/apiService';
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');

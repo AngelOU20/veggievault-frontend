@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ClockImg from '../../assets/clock.svg';
 import { Link } from 'react-router-dom';
-import { categories } from '../../category/constants';
+import { categories } from '../../modules/category/constants';
 
 export const Card = ({ item }) => {
   const getCategoryStyle = (categoryName) => {
